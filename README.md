@@ -26,9 +26,10 @@ L'objectif du projet est de créer un jeu de puissance 4 connecté où 2 joueurs
 
 ## Etapes 
 
-- Machine à état (tester tant que possible)
-- Interface 
-- Jeu hors ligne
-- Mise en place du serveur
-- Jeu en ligne
-- Mise en ligne (déploiement)
+- [x] Initialisation du projet avec ViteJS
+- [x] Machine à état (tests avec Vitest)
+- [ ] Interface 
+- [ ] Jeu hors ligne
+- [ ] Mise en place du serveur
+- [ ] Jeu en ligne
+- [ ] Mise en ligne (déploiement)
