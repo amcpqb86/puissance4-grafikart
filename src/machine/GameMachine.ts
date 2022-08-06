@@ -6,15 +6,18 @@ import {
     canDropGuard,
     canJoinGuard,
     canLeaveGuard,
-    canStartGameGuard, isDrawMoveGuard,
+    canStartGameGuard,
+    isDrawMoveGuard,
     isWiningMoveGuard
 } from "./guards";
 import {
     chooseColorAction,
     dropTokenAction,
     joinGameAction,
-    leaveGameAction, restartAction,
-    saveWiningPositionAction, setCurrentPlayerAction,
+    leaveGameAction,
+    restartAction,
+    saveWiningPositionAction,
+    setCurrentPlayerAction,
     switchPlayerAction
 } from "./actions";
 
@@ -44,8 +47,21 @@ export const GameModel = createModel({
 
 export const GameMachine = GameModel.createMachine({
     id: 'game',
-    context: GameModel.initialContext,
-    initial: GameStates.LOBBY,
+    context: {
+        ...GameModel.initialContext,
+        players: [{
+            id: "John",
+            name: "John",
+            color: PlayerColor.YELLOW
+        },
+            {
+                id: "Marc",
+                name: 'Marc',
+                color: PlayerColor.RED
+            }],
+        currentPlayer: "John"
+    },
+    initial: GameStates.PLAY,
     states: {
         [GameStates.LOBBY]: {
             on: {
